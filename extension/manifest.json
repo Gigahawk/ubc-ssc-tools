@@ -4,7 +4,7 @@
   "author": "Jasper Chan",
   "description": "Generate iCal files from the UBC SSC exam page",
   "homepage_url": "https://github.com/Gigahawk/ssc-exam-ical-generator",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "permissions": [
       "downloads",
       "*://ssc.adm.ubc.ca/*ExamSchedule"
