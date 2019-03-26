@@ -1,15 +1,23 @@
 {
   "manifest_version": 2,
-  "name": "Template Browser Extension",
-  "author": "Web Developer",
-  "description": "Template Browser Extension",
-  "homepage_url": "https://github.com/ryanwhocodes/template-browser-extension",
+  "name": "SSC Exam iCal Generator",
+  "author": "Jasper Chan",
+  "description": "Generate iCal files from the UBC SSC exam page",
+  "homepage_url": "https://github.com/Gigahawk/ssc-exam-ical-generator",
   "version": "0.0.1",
   "browser_action": {
    "default_popup": "popup.html",
-   "default_title": "Template Browser Extension"
+   "default_title": "SSC Exam iCal Generator"
   },
   "permissions": [
-    "tabs"
+      "tabs",
+      "downloads",
+      "*://ssc.adm.ubc.ca/*ExamSchedule"
+  ],
+  "content_scripts": [
+      {
+          "matches": ["*://ssc.adm.ubc.ca/*ExamSchedule"],
+          "js": ["ics.js/ics.deps.min.js", "ics.js/ics.js", "test.js"]
+      }
   ]
 }

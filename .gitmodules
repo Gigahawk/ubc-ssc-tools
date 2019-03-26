@@ -1,0 +1,3 @@
+[submodule "extension/ics.js"]
+	path = extension/ics.js
+	url = https://github.com/nwcell/ics.js
