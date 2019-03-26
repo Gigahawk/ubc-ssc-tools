@@ -21,7 +21,7 @@ btn.id = "download-button";
 btn.disabled = true;
 btn.innerHTML = "Download iCal file"
 btn.addEventListener("click", function() {
-    cal.download();
+    cal.download('exam');
 }, false);
 header_row.appendChild(btn)
 
