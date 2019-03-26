@@ -14,7 +14,7 @@ table.shift()
 // Find header bar
 var header = table_trs.find(el =>  el[0]["children"][0]["innerHTML"] == "Exam Schedule");
 
-// Add download button and set to disabled until all exams have been processed
+// Add download button to header bar and set to disabled until all exams have been processed
 var header_row = header[0]
 var btn = document.createElement("button")
 btn.id = "download-button";
@@ -32,7 +32,7 @@ Date.prototype.addHours = function(h) {
 }
 
 // Apparently for loop is faster than forEach
-for(var i=0, len=table.length; i< len; i++){
+for(var i=0, len=table.length; i< len; i++) {
     el = table[i]
     cols = el["children"]
     course = cols[0].innerHTML
@@ -49,25 +49,14 @@ for(var i=0, len=table.length; i< len; i++){
     exam_name = `EXAM: ${course}`
     exam_description = `${instructor_text}\n${instructor_email}`
     exam_begin = `${date} ${time}`
+    // Assume 2 hour long exam
     exam_end = new Date(exam_begin).addHours(2).toString()
     exam_location = loc
 
-    console.log(exam_name)
-    console.log(exam_begin)
-    console.log(exam_description)
-    console.log(exam_end)
-    console.log(exam_location)
     cal.addEvent(exam_name, exam_description, exam_location, exam_begin, exam_end)
+
+    // Enable button if last item
     if(i >= table.length - 1) {
         btn.disabled = false;
     }
 }
-
-
-console.log(cal)
-
-console.log(table)
-
-console.log(table_trs)
-
-console.log(header)
