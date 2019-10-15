@@ -39,7 +39,12 @@ for(var i=0, len=table.length; i< len; i++) {
     date = cols[1].innerHTML
     day = cols[2].innerHTML
     time = cols[3].innerHTML
-    loc = cols[4]["children"][0].innerHTML
+    loc = cols[4]["children"][0]
+    if(loc) {
+        loc = loc.innerHTML;
+    } else {
+        loc = "";
+    }
     alpha = cols[5].innerHTML
     instructor = cols[6]
     instructor_text = instructor.innerText
