@@ -1,24 +1,24 @@
 {
   "manifest_version": 2,
-  "name": "SSC Exam iCal Generator",
+  "name": "UBC SSC Tools",
   "author": "Jasper Chan",
-  "description": "Generate iCal files from the UBC SSC exam page",
-  "homepage_url": "https://github.com/Gigahawk/ssc-exam-ical-generator",
-  "version": "0.0.2",
+  "description": "Adds features to UBC SSC",
+  "homepage_url": "https://github.com/Gigahawk/ubc-ssc-tools",
+  "version": "0.0.3",
   "permissions": [
       "downloads",
-      "*://ssc.adm.ubc.ca/*ExamSchedule"
+      "*://ssc.adm.ubc.ca/*ExamSchedule*",
+      "*://ssc.adm.ubc.ca/*SessGradeRpt*",
+      "*://ssc.adm.ubc.ca/*AcademicRecord*"
   ],
   "content_scripts": [
       {
           "matches": ["*://ssc.adm.ubc.ca/*ExamSchedule*"],
-          "js": ["ics.js/ics.deps.min.js", "ics.js/ics.js", "exam_sched.js"],
-          "all_frames": true
+          "js": ["ics.js/ics.deps.min.js", "ics.js/ics.js", "exam_sched.js"]
       },
       {
           "matches": ["*://ssc.adm.ubc.ca/*SessGradeRpt*", "*://ssc.adm.ubc.ca/*AcademicRecord*"],
-          "js": ["grades_export.js"],
-          "all_frames": true
+          "js": ["grades_export.js"]
       }
   ]
 }
