@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+  
+  pull_request:
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+          
+      - name: Build extension
+        run: |
+          cd extension
+          zip -r extension.zip ./*
+      
+      - name: Upload binary
+        uses: actions/upload-artifact@v2.3.1
+        with:
+          path: extension/extension.zip 
