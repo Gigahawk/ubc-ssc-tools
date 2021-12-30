@@ -11,8 +11,13 @@
   ],
   "content_scripts": [
       {
-          "matches": ["*://ssc.adm.ubc.ca/*ExamSchedule"],
-          "js": ["ics.js/ics.deps.min.js", "ics.js/ics.js", "main.js"],
+          "matches": ["*://ssc.adm.ubc.ca/*ExamSchedule*"],
+          "js": ["ics.js/ics.deps.min.js", "ics.js/ics.js", "exam_sched.js"],
+          "all_frames": true
+      },
+      {
+          "matches": ["*://ssc.adm.ubc.ca/*SessGradeRpt*", "*://ssc.adm.ubc.ca/*AcademicRecord*"],
+          "js": ["grades_export.js"],
           "all_frames": true
       }
   ]
